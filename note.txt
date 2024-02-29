@@ -1,0 +1,12 @@
+//create trip
+
+ {isPending && <Box>loading</Box>}
+           {data?.map((point : Tdata , key : number) => (
+             <Box key={key} >
+                {point.type === "movingbox" &&
+                <Movingbox MoveIcon={point.moveicon} index={point.index} date={point.date} time={point.time} />  }
+                {point.type === "point" &&
+                <Point index={point.index} date={point.date} location={point.location}/>
+                }
+             </Box> 
+             ))}     
