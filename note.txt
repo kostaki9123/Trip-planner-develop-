@@ -1,12 +1,42 @@
-//create trip
+import { Box } from "@chakra-ui/react"
+import {
+  APIProvider ,
+  Map,
+  AdvancedMarker,
+  Pin,
+  Marker ,
+   
+ } from "@vis.gl/react-google-maps" 
+ 
 
- {isPending && <Box>loading</Box>}
-           {data?.map((point : Tdata , key : number) => (
-             <Box key={key} >
-                {point.type === "movingbox" &&
-                <Movingbox MoveIcon={point.moveicon} index={point.index} date={point.date} time={point.time} />  }
-                {point.type === "point" &&
-                <Point index={point.index} date={point.date} location={point.location}/>
-                }
-             </Box> 
-             ))}     
+const Googlemap = () => {
+  const position = {lat: 53.54992, lng: 10.00678};
+  const position1 = {lat: 53.54992, lng: 10.00678};
+  const position2 = {lat: 55.54992, lng: 10.00678};
+
+  const pathCoordinates = [
+    { lat: 53.54992, lng:  10.00678},
+    { lat:  55.54992, lng: 11.00678}
+];
+
+const initialViewState = {
+  longitude: 8.525,
+  latitude: 47.394,
+  zoom: 12,
+  pitch: 40.5,
+};
+
+  return (
+    <APIProvider apiKey="AIzaSyA5s9ii3P2sx3xwxZ8JgrrXxk3g-flRWMg">
+      <Box position="absolute" top="40%" bottom="0" right="0" left="0">
+        <Map defaultCenter={position} defaultZoom={10}>  
+            <Marker position={position1}/>
+            <Marker position={position2}/>
+          
+        </Map>
+      </Box>
+    </APIProvider>
+  )
+}
+
+export default Googlemap

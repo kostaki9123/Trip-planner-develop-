@@ -13,7 +13,7 @@ const pointSchema = new Schema ({
       },
     startdate: {
         type: String,
-        required: true
+        required: false
       },
     location: {
         type: String,
@@ -38,8 +38,12 @@ const pointSchema = new Schema ({
     from: {
        type: String,
        required: false
-    }
-    
+    },
+    mapos: {
+       type: Object,
+       required: false
+    } 
 })
+
 
 export default mongoose.model('Point', pointSchema)

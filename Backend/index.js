@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cors from "cors"
 import userRoutes from "./routes/userAuth.js"
-import { createpoint ,getpoints , deletepoint , updatepoint, movepoint} from './controllers/pointController.js';
+import { createpoint ,getpoints , deletepoint , updatepoint, movepoint , createpointbetwwen} from './controllers/pointController.js';
 
 
 const app = express()
@@ -36,6 +36,7 @@ app.get("/getpoints" , getpoints )
 app.delete("/deletepoint/:id", deletepoint) 
 app.put("/updatepoint" , updatepoint )
 app.put("/movepoint" , movepoint )
+app.post("/createpointbetwwen" , createpointbetwwen )
 
 
 mongoose.connect(process.env.MONGO_URI)
