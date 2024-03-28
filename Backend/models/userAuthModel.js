@@ -14,21 +14,24 @@ const userSchema = new Schema ({
     password: {
         type: String,
         required: true
+      },
+    fullname: {
+        type: String,
+        required: true
       }
-
 })
 
 //static singup method
-userSchema.statics.singup = async function(email , password) {
+userSchema.statics.singup = async function(email , password , fullname) {
     //validation 
-    if (!email || !password ){
+    if (!email || !password || !fullname){
         throw Error ('All fields must be filled')
     }
     if (!validator.isEmail(email)){
         throw Error ('Email not valid') 
     }
     if (!validator.isStrongPassword(password)){
-        throw Error ('Password in strong enough')
+        throw Error ('Password is not strong enough')
     }
 
     const exist = await this.findOne({ email })
@@ -36,11 +39,12 @@ userSchema.statics.singup = async function(email , password) {
     if (exist){
         throw Error ('Email already in use')
     }
+    
 
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password , salt)
 
-    const user = await this.create({email , password : hash})
+    const user = await this.create({email , password : hash ,fullname})
 
     return user
 }

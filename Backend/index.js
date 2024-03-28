@@ -8,7 +8,13 @@ import { createpoint ,getpoints , deletepoint , updatepoint, movepoint , createp
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+
+// Handle CORS preflight requests (OPTIONS)
+app.options('*', cors());
 
 dotenv.config();
 
