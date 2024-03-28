@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+}
+
+.main-section { 
+  height: 100vh;
+}
+
+:root {
+  --chakra-fontSizes-lg: '18px';
+  --chakra-colors-gray-100: '#fafafa';
+  --chakra-colors-gray-200: '#f7f7f7';
+}
+
+.pac-container {
+  z-index: 9999;
+}
