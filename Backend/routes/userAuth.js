@@ -14,8 +14,5 @@ router.post('/login', loginUser)
 //singUp
 router.post('/signup', singupUser)
 
-//create point
-router.post('/createpoint', createpoint )
-
 
 export default router

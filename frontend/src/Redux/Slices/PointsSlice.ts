@@ -1,6 +1,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { Tdatatosend } from "../../components/createbox/movePoint";
+import { axiosPrivate } from "../../api/axios";
 
 export type Tmapos = {
     lat: number
@@ -172,7 +173,7 @@ export const createPointAsync = createAsyncThunk(
     const url = "http://localhost:5000/createpoint";
 
     try {
-      const response = await axios.post(url, newpoint);
+      const response = await axiosPrivate.post(url, newpoint);
       console.log("ρεσπονε" ,response)
       // Ensure that the API call is successful before returning the response
       if (response.status === 200) {
@@ -194,7 +195,7 @@ export const createPointAsync = createAsyncThunk(
    export const fetchdata = createAsyncThunk(
        "points/getpoints",
        async ()  => {
-       const res  = await axios.get<Tpoint[]>("http://localhost:5000/getpoints")
+       const res  = await axiosPrivate.get<Tpoint[]>("http://localhost:5000/getpoints")
        console.log("Real res:",res)      
 
        return res.data
@@ -207,7 +208,7 @@ export const createPointAsync = createAsyncThunk(
       
        try{
        
-       const res  = await axios.delete(`http://localhost:5000/deletepoint/${id}`)
+       const res  = await axiosPrivate.delete(`http://localhost:5000/deletepoint/${id}`)
        
       if (res.status === 200) {
     
@@ -230,7 +231,7 @@ export const createPointAsync = createAsyncThunk(
 
       try{
         console.log(newpoint)
-       const res  = await axios.put(`http://localhost:5000/updatepoint`, newpoint)
+       const res  = await axiosPrivate.put(`http://localhost:5000/updatepoint`, newpoint)
 
        if (res.status === 200) {
        
@@ -252,7 +253,7 @@ export const createPointAsync = createAsyncThunk(
        async (moveinfo :Tdatatosend  , { rejectWithValue }) => {
         try{
          
-          const res = await axios.put(`http://localhost:5000/movepoint` , moveinfo)
+          const res = await axiosPrivate.put(`http://localhost:5000/movepoint` , moveinfo)
           console.log("res from move" ,res)
          if (res.status === 200) {
        
@@ -275,7 +276,7 @@ export const createPointAsync = createAsyncThunk(
         const url = "http://localhost:5000/createpointbetwwen";
     
         try {
-          const response = await axios.post(url, newpoint);
+          const response = await axiosPrivate.post(url, newpoint);
           console.log("ρεσπονε" ,response)
           // Ensure that the API call is successful before returning the response
           if (response.status === 200) {

@@ -1,11 +1,13 @@
 import { Box , Avatar,  Flex, Heading, Text } from '@chakra-ui/react'
+import {  useSelector} from 'react-redux'
+import { RootState } from '../../Redux/store'
 import Profilemodal from './profilemodal'
 import Switchtrip from './switchtrip'
 
 
 const Topbar = () => {
- 
-
+   const fullname = useSelector((state: RootState) => state.auth.fullname)
+  
   return (
     <Box  position="fixed" h="80px" w="100%" zIndex={9997} justifyContent="space-between" bgColor="rgb(26,28,34)"  display="flex" alignItems="center" >  
        <Flex  h="100%" w="40%">
@@ -18,7 +20,7 @@ const Topbar = () => {
        </Flex>
        <Flex  mr="30px" align="center" justify="space-around" position="relative" >
           <Switchtrip/>
-          <Heading as="h5" size="md" color="white" mx="15px" >Konstantinos Papouis</Heading>
+          <Heading as="h5" size="md" color="white" mx="15px" >{fullname}</Heading>
           <Profilemodal/>
        </Flex>
       

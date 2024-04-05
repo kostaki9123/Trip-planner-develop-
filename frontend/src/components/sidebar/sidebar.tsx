@@ -33,7 +33,7 @@ const Sidebar = () => {
        zIndex={9999}
        >
          <Flex  alignItems="flex-start" direction="column">
-             <Navitem title="Home" icon={CiHome} selected={sellected} setSellected={setSellected}  to="/"/>  
+             <Navitem title="Home" icon={CiHome} selected={sellected} setSellected={setSellected}  to="/home"/>  
              <Navitem title="Create trip" icon={IoMdCreate} selected={sellected} setSellected={setSellected} to="/createtrip" />  
              <Navitem title="Itinerary" icon={GrSchedule} selected={sellected} setSellected={setSellected} to="/itinerary" />  
              <Navitem title="Budget" icon={LuWallet} selected={sellected} setSellected={setSellected} to="/budget" />  

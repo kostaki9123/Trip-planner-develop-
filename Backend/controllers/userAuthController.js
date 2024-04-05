@@ -1,12 +1,14 @@
 import jwt from 'jsonwebtoken'
 import User from '../models/userAuthModel.js'
 
-const createAccessToken = (user) => {
-    return jwt.sign({user}, process.env.A_SECRET, { expiresIn: "1d" })
+export const createAccessToken = (_id) => {
+    const expiration = Math.floor(Date.now() / 1000) + (60 * 60 * 24)
+    return jwt.sign({_id}, process.env.A_SECRET, { expiresIn: expiration })
   }
 
 const createRefreshToken = (_id) => {
-    return jwt.sign({_id}, process.env.R_SECRET, { expiresIn: '15d' })
+    const expiration = Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 15)
+    return jwt.sign({_id}, process.env.R_SECRET, { expiresIn: expiration })
   }
 
 export const loginUser =async (req,res) => {
@@ -16,14 +18,16 @@ export const loginUser =async (req,res) => {
     try{
         User.login(email , password)
         .then(user =>  {
-           const accesstoken = createAccessToken(user)
+           const accesstoken = createAccessToken(user._id)
            const refreshtoken = createRefreshToken(user._id)
            
+
+           res.cookie('ACTriplanner', accesstoken, { httpOnly: true, secure: true , });
+           res.cookie('RFTriplanner', refreshtoken, { httpOnly: true, secure: true , });
+
            res.status(200).json({
             Email:user.email,
             fullname:user.fullname,
-            accesstoken: accesstoken,
-            refreshtoken : refreshtoken,
          })
            })
         .catch(error => {
@@ -34,9 +38,6 @@ export const loginUser =async (req,res) => {
         res.status(400).json({error: error.message})
     }
 }
-
-
-
 
 export const singupUser = (req,res) => {
     const {email , password , fullname} = req.body  
@@ -59,5 +60,18 @@ export const singupUser = (req,res) => {
 
          res.status(400).json({ error });   
         }
+    }
+}
+
+export const logoutUser = async (req, res) => {
+    try {
+        // Clear cookies containing JWT tokens
+        res.clearCookie('ACTriplanner');
+        res.clearCookie('RFTriplanner');
+        
+        console.log("log out")
+        res.status(200).json({ message: "Logged out successfully" });
+    } catch (error) {
+        res.status(500).json({ error: "Internal server error" });
     }
 }

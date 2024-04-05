@@ -2,7 +2,7 @@ import { Box , Modal, Stack , Spinner, Flex} from '@chakra-ui/react'
 import { useEffect, useState ,useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-
+import Dashboardlayout from '../components/Dashboard/dashboardlayout'
 import Point from '../components/createbox/point'
 import Uniteline from '../components/createbox/Unitedline'
 import Movingbox from '../components/createbox/movingbox'
@@ -53,8 +53,8 @@ const Createtrip  = () => {
 
   return (
 
-    <>
-    <Box  bgColor="rgb(40,44,53)" h="100%" pos="relative" display="grid" gridTemplateColumns="70px repeat(9, 132px)" gridTemplateRows="49px 69px">
+    <Dashboardlayout>
+      <Box  bgColor="rgb(40,44,53)" h="100%" pos="relative" display="grid" gridTemplateColumns="70px repeat(9, 132px)" gridTemplateRows="49px 69px">
           { isPending ? 
           <Flex position="absolute" top="10%" left="47%" > 
             <Spinner size='xl' />
@@ -72,8 +72,8 @@ const Createtrip  = () => {
            )
           }
          <App position="absolute"/>
-    </Box> 
-    </>
+      </Box> 
+    </Dashboardlayout>
   )
 }
 

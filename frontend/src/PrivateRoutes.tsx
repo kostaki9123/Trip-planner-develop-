@@ -1,28 +1,56 @@
-import { Outlet , Navigate } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { Box, Grid } from "@chakra-ui/react";
 import Sidebar from "./components/sidebar/sidebar";
-import {  useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "./Redux/store";
 import Topbar from "./components/topbar/topbar";
+import { axiosPrivate } from "./api/axios";
+import { signin } from "./Redux/Slices/AuthSlice";
+import SignIn from "./pages/SignIn";
+import Fullpageloading from "./components/loaders/fullpageloading";
+import { useLocation } from "react-router-dom";
+import ManageTrips from "./pages/manageTrips";
 
+const PrivateRoutes = () => {
+  const email = useSelector((state: RootState) => state.auth.email);
+  const dispatch = useDispatch();
 
-const PrivateRoutes = () => {  
-      const omonoia = useSelector((state: RootState) => state?.auth.email)
-      const [auth , setAuth] = useState<boolean>(false)
-   
-    return(
-        auth ?
-        <Grid gridTemplateColumns="250px 1fr" gridTemplateRows="80px 1fr" minH="100vh">
-            <Topbar/>
-            <Sidebar/>
-            <Box  gridColumn="2/3" gridRow="2/3" top="80px" right="0" left="250px" bottom="0" color="white">
-              <Outlet/> 
-            </Box>
+  const [auth, setAuth] = useState<boolean | null>(null);
   
-        </Grid>
-         : <Navigate to='signin'/>
-    )
-}
 
-export default PrivateRoutes
+  useEffect(() => {
+    const authCheck = async () => {
+      try {
+        const res = await axiosPrivate("/");
+        if (res.status === 401) {
+          setAuth(false);
+        } else {
+          // Update Redux state with user data
+          dispatch(signin({ email: res.data.email, fullname: res.data.fullname }));
+          setAuth(true);
+        }
+      } catch (error) {
+        console.error("Error occurred during authentication check:", error);
+        setAuth(false);
+      }
+    };
+
+    authCheck();
+  }, [dispatch]);
+
+  if (auth === null) {
+    return <Fullpageloading />;
+  }
+
+  return auth ? (
+    <>
+        <Outlet />
+    </>
+
+  ) : (
+    <Navigate to="signin" />
+  );
+};
+
+export default PrivateRoutes;

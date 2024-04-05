@@ -1,26 +1,38 @@
 import { Menu,MenuButton,MenuList,MenuGroup,MenuItem,MenuDivider,Button, Avatar } from "@chakra-ui/react";
+import { AppDispatch } from "../../Redux/store";
+import { useDispatch , useSelector} from 'react-redux'
+import { LogoutAsync } from "../../Redux/Slices/AuthSlice";
+import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
-import { Box,Flex } from "@chakra-ui/react"
-import { CgProfile } from "react-icons/cg";
-import { IoIosSettings } from "react-icons/io";
-import { IoIosLogOut } from "react-icons/io";
+type props = {
+  dropdownside ? : string
+}
 
-const Profilemodal = () => {
+const Profilemodal = (props : props) => {
+
+  const dispatch = useDispatch<AppDispatch>()
+  const navigate = useNavigate()
+
+
+const handleLogout = async () => {
+   dispatch(LogoutAsync())
+   navigate("/signin")
+}
 
   return (
-   <Menu>
+   <Menu placement={props.dropdownside === "bl" ?  "bottom-end" : "auto"}>
      <MenuButton>
          <Avatar   name='kostas' src='/cartoon.jpg' ml="15px" cursor="pointer"  size="md" />
       </MenuButton>
-       <MenuList zIndex={9999}>
+       <MenuList zIndex={9999} >
          <MenuGroup title='Profile'>
            <MenuItem>My Account</MenuItem>
            <MenuItem>Payments </MenuItem>
          </MenuGroup>
          <MenuDivider />
          <MenuGroup title='Help'>
-           <MenuItem>Docs</MenuItem>
-           <MenuItem>FAQ</MenuItem>
+           <MenuItem onClick={handleLogout}>Log out</MenuItem>
          </MenuGroup>
        </MenuList>
    </Menu>  

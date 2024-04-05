@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BsThreeDots } from "react-icons/bs";
 
 
-
+import Dashboardlayout from '../components/Dashboard/dashboardlayout';
 import { Tpoint, fetchdata } from '../Redux/Slices/PointsSlice'
 import { AppDispatch, RootState } from '../Redux/store'
 import AccordionItenerary from '../components/itenerary/accodion';
@@ -31,6 +31,7 @@ const Itinerary  = () => {
    } , [])
 
   return (
+   <Dashboardlayout>
     <Box bgColor="rgb(40,44,53)" minH="100%" display="flex" alignItems="start"  justifyContent="space-between" flexDirection="column" >
          <Flex  w="100%"  flexDir="column">
          { isPending ? 
@@ -71,6 +72,7 @@ const Itinerary  = () => {
              <App/>
           </Box>
     </Box>
+  </Dashboardlayout> 
   )
 }
 
