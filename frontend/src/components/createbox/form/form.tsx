@@ -6,14 +6,12 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { createPointAsync } from "../../../Redux/Slices/PointsSlice";
-import { MdAddLocationAlt } from "react-icons/md";
 import { Tpoint } from '../../../Redux/Slices/PointsSlice';
 import { AppDispatch } from '../../../Redux/store';
 import LocationInput from './locationinput';
 
-import Example from '../radiusbuttons/example';
-import RadioCard from '../radiusbuttons/radiuscard';
-import Locationinput from './locationinput';
+
+import Example from './radiusbuttons/example';
 import { APIProvider } from '@vis.gl/react-google-maps';
 
 type Props = {
@@ -73,6 +71,7 @@ const Form = (props : Props) => {
       dispatch(createPointAsync(Pointdatatosend))
 
     }else{
+        console.log("check moveicon form:" , moveIcon)
       const Movingboxdatatosend : Tpoint = { 
         index : props.index,
         type : selectedRadio , 
@@ -97,7 +96,7 @@ const Form = (props : Props) => {
 
     <Modal isOpen={props.isOpen} onClose={props.onClose}>
     <ModalOverlay />
-    <ModalContent zIndex={1}>
+    <ModalContent zIndex={1} pos="absolute" top="5.6%" left="43%" >
     <form onSubmit={handleSubmit(handleData)}>
           <ModalHeader display="flex" alignItems="center" justifyContent="center" >
              <RadioGroup >
@@ -109,8 +108,8 @@ const Form = (props : Props) => {
              { selectedRadio === "point" ? 
              <>
               <Box zIndex={9999}>
-                <APIProvider apiKey="AIzaSyA5s9ii3P2sx3xwxZ8JgrrXxk3g-flRWMg">
-                  <LocationInput setLocation={setLocation} inputName='Location' deafultValue={null}/>
+                <APIProvider apiKey="AIzaSyCAr2KKXk5lOGhbJQXkfLldvwnaXioCJ5Q">
+              {/*LOCATION INPUT*/}  <LocationInput setLocation={setLocation} inputName='Location' deafultValue={null}/>
                 </APIProvider>
               </Box>
               <Box  h="40px" display="flex" flexDirection="row" alignItems="start"  justifyContent="space-between">
@@ -126,9 +125,9 @@ const Form = (props : Props) => {
             </>
               :
               <>
-              <APIProvider apiKey="AIzaSyA5s9ii3P2sx3xwxZ8JgrrXxk3g-flRWMg">
-                <LocationInput setLocation={setFrom} inputName='From' deafultValue={null}/>
-                <LocationInput setLocation={setTo} inputName='To' deafultValue={null}/>         
+              <APIProvider apiKey="AIzaSyCAr2KKXk5lOGhbJQXkfLldvwnaXioCJ5Q">
+                {/*LOCATION INPUT*/}   <LocationInput setLocation={setFrom} inputName='From' deafultValue={null}/>
+                {/*LOCATION INPUT*/}   <LocationInput setLocation={setTo} inputName='To' deafultValue={null}/>         
               </APIProvider>
                <FormControl>
                  <FormLabel>Time</FormLabel>
@@ -136,13 +135,13 @@ const Form = (props : Props) => {
                  <FormHelperText color="red">{errors.time?.message}</FormHelperText> 
                </FormControl>
                <FormLabel>By</FormLabel> 
-               <Select placeholder='Select option'  mb="5px">
-                    <option onClick={() => setMoveIcon("Airplane")} value='option1'>Airplane</option>
-                    <option onClick={() => setMoveIcon("Train")} value='option2'>Train</option>
-                    <option onClick={() => setMoveIcon("Car")} value='option3'>Car</option>
-                    <option onClick={() => setMoveIcon("Bus")} value='option4'>Bus</option>
-                    <option onClick={() => setMoveIcon("Cycle")} value='option5'>Cycle</option>
-                    <option onClick={() => setMoveIcon("Ship")} value='option6'>Ship</option>
+               <Select placeholder='Select option'  mb="5px" onChange={(e) => setMoveIcon(e.target.value)}>
+                    <option value='Airplane'>Airplane</option>
+                    <option value='Train'>Train</option>
+                    <option value='Car'>Car</option>
+                    <option value='Bus'>Bus</option>
+                    <option value='Cycle'>Cycle</option>
+                    <option value='Ship'>Ship</option>
                </Select> 
                <FormControl>
                  <FormLabel>Date</FormLabel>

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { Provider } from 'react-redux';
 import { store } from './Redux/store';
 
@@ -13,11 +13,27 @@ const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const breakpoints = {
+  base: '0px',
+  sm: '320px',
+  md: '545px',
+  lg: '720px',
+  xl: '909px',
+  xll : "1035px" ,
+  xxl : "1172px" ,
+  xxxl : "1415px",
+  xxxxl: "1460px" ,
+ '2xl': '1536px',
+}
+
+const theme = extendTheme({ breakpoints })
+
 root.render(
   <Provider store={store}>
     <QueryClientProvider client={queryClient}>
      <React.StrictMode>
-       <ChakraProvider>
+       <ChakraProvider theme={theme}>
           <App />
        </ChakraProvider>
      </React.StrictMode>

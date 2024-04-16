@@ -2,10 +2,10 @@ import React from 'react'
 import { Box } from '@chakra-ui/react'
 import LocationInput from '../components/createbox/form/locationinput'
 import { useState } from 'react'
-import Dashboardlayout from '../components/Dashboard/dashboardlayout'
+import Dashboardlayout from '../components/DashboardLayout/dashboardlayout'
 
 
-const Advise = () => {
+const Discover = () => {
 
   return (
    <Dashboardlayout>
@@ -16,4 +16,4 @@ const Advise = () => {
   )
 }
 
-export default Advise
+export default Discover

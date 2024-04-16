@@ -9,7 +9,7 @@ import Mytivkets from "../components/home/mytivkets";
 import Mynotes from "../components/home/mynotes";
 import { AppDispatch, RootState } from '../Redux/store'
 import Checklst from "../components/home/checklist";
-import Dashboardlayout from "../components/Dashboard/dashboardlayout";
+import Dashboardlayout from "../components/DashboardLayout/dashboardlayout";
 // fetch user data and pass them in prop
 // display grid
 const Home = () => {

@@ -28,9 +28,18 @@ const positiongrid = [
   {gridColumn: 8, gridRow : 3 },
   {gridColumn: 9, gridRow : 2 },
   {gridColumn: 10, gridRow : 3 },
- 
+  {gridColumn: 11, gridRow : 2 },
+  {gridColumn: 12, gridRow : 3 },
+  {gridColumn: 13, gridRow : 2 },
+  {gridColumn: 14, gridRow : 3 },
+  {gridColumn: 15, gridRow : 2 },
+  {gridColumn: 16, gridRow : 3 },
+  {gridColumn: 17, gridRow : 2 },
+  {gridColumn: 18, gridRow : 3 },
+  {gridColumn: 19, gridRow : 2 },
+  {gridColumn: 20, gridRow : 3 },
+  {gridColumn: 21, gridRow : 3 },
   ]
-
 
 const AddModal = (props : Props) => {
      const { isOpen, onOpen, onClose } = useDisclosure()
@@ -40,7 +49,7 @@ const AddModal = (props : Props) => {
   return (
   <>
     <Box  onClick={onOpen} zIndex={0} alignItems="center" justifyContent="center" display="flex" gridColumn={positiongrid[props.index].gridColumn} gridRow={positiongrid[props.index].gridRow} h="83px" w="89px">
-      <Flex  align="center" justify="center" border="1px solid red"  borderRadius="50%" w="80px" h="80px" cursor="pointer">
+      <Flex  align="center" justify="center" border="1px solid red"  borderRadius="50%" w="89px" h="83px" cursor="pointer">
           <MdAddLocationAlt style={{fontSize : "30px" , fontWeight : "bolder"}}/>
       </Flex>
     </Box>

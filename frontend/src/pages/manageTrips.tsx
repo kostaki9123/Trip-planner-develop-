@@ -4,40 +4,27 @@ import Tripmodal from "../components/managetrips/tripmodal"
 import { IoMdAdd } from "react-icons/io";
 import Profilemodal from "../components/topbar/profilemodal";
 import CaptionCarousel from "../components/managetrips/carousel";
+import Topbar from "../components/topbar/topbar";
 
 
 
 const ManageTrips = () => {
   return (
   <Box bgColor="rgb(40,44,53)" minH="100vh">
-     <Box  position="absolute" h="80px" zIndex={9997}   w="100%"  justifyContent="center" bgColor="rgb(26,28,34)"  display="flex" alignItems="center" >  
-         <Flex  w="74%" h="100%" justifyContent="space-between" >
-            <Flex h="100%" w="65%" alignItems="center" justifyContent="start"  >
-               <Image src='/logoforshow192.png' h="50px" w="50px" />
-               <Flex  w="140px" h="100%" alignItems="center" justifyContent="center"  p={0}>
-                 <Heading p={0} fontSize="21px" textAlign="center" color="blue" >Trip planner</Heading>
-               </Flex>
-               <Flex fontWeight="700"  w="40%" h="100%" alignItems="center" justifyContent="flex-start"  >
-                  <Flex mr="auto"  h="100%" color="white" alignItems="center" justifyContent="center"   >
-                        <Flex alignItems="center" mb="3px" ml="25px" h="100%" _hover={{color : "lime"}} cursor="pointer">Home</Flex>
-                  </Flex>
-                  <Flex mr="auto"  h="100%" color="white" alignItems="center" justifyContent="center"   >
-                        <Flex alignItems="center" mb="3px" ml="7px" h="100%"  _hover={{color : "lime"}} cursor="pointer">Ιnspiration</Flex>
-                  </Flex>
-                  <Flex mr="auto"  h="100%" color="white" alignItems="center" justifyContent="center" >
-                        <Flex alignItems="center" mb="3px" ml="7px" h="100%"  _hover={{color : "lime"}} cursor="pointer">About us</Flex>
-                  </Flex>
-               </Flex>
-            </Flex> 
-
-            <Flex h="100%" w="10%" alignItems="center" justifyContent="flex-end" >
-                <Profilemodal dropdownside="bl"/>
-            </Flex> 
-
-
-         </Flex>
-     </Box>
-
+      <Box  position="fixed" h="80px" w="100%" zIndex={9997} justifyContent="space-between" bgColor="rgb(26,28,34)"  display="flex" alignItems="center" >  
+           <Flex  h="100%" w="248px" >
+              <Flex w="100%" alignItems="center" justifyContent="center">
+               <Heading fontSize="19px" textAlign="center" color="white" >Trip planner</Heading>
+              </Flex>
+           </Flex>
+           <Flex alignItems="center" justifyContent="center" >
+               <Heading as="h5" size="md" fontSize="30px" color="white" mr="59px" fontFamily="sans-serif">Manage trips</Heading>
+           </Flex>
+           <Flex  mr="30px" align="center" justify="space-around" position="relative" >        
+              <Heading as="h5" size="md" color="white" mx="15px" >James maddison</Heading>
+              <Profilemodal/>
+           </Flex>   
+       </Box>
      {/*
        finish 
      start main page */}
@@ -47,7 +34,7 @@ const ManageTrips = () => {
               <Heading as="h4" textAlign="left" color="white">My trips</Heading>
             </Box>
             <Box h="80%" w="74%"  position="relative">
-                <Flex alignItems="center" justifyContent="center" cursor="pointer" zIndex="9996" border="2px solid yellow" position="absolute" top="-2" borderRadius="50%" right="1" h="60px" w="60px">
+                <Flex alignItems="center" justifyContent="center" cursor="pointer" zIndex="9996" bgColor="rgb(26,28,34)" position="absolute" top="-2" borderRadius="50%" right="1" h="60px" w="60px">
                     <Box  position="absolute" color="white" fontSize="29px">
                       <IoMdAdd/>
                     </Box>
@@ -83,7 +70,9 @@ const ManageTrips = () => {
             </Box>
           </Flex>
 
-
+          {/*
+       finish 
+     start main page 
 
           <Flex flexDir="column" w="100%"   alignItems="start" justifyContent="start" >
              <Flex  w="100%" alignItems="center" h="320px" justifyContent="center" flexDir="column">
@@ -110,6 +99,7 @@ const ManageTrips = () => {
                 </Box>
              </Flex>
           </Flex>
+          */}
      </Flex>
   </Box>  
   )

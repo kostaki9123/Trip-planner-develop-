@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Flex } from '@chakra-ui/react'
+import { Flex ,useMediaQuery } from '@chakra-ui/react'
 import { useLocation } from 'react-router-dom';
 
 // icons
@@ -31,17 +31,17 @@ const Sidebar = () => {
        width="250px"
        justifyContent="start"
        zIndex={9999}
+       display={{base: "none",sm: "none", md: "none", lg: "none",xl: "block",xxl : "block" ,"2xl": "block" }}
        >
          <Flex  alignItems="flex-start" direction="column">
              <Navitem title="Home" icon={CiHome} selected={sellected} setSellected={setSellected}  to="/home"/>  
              <Navitem title="Create trip" icon={IoMdCreate} selected={sellected} setSellected={setSellected} to="/createtrip" />  
              <Navitem title="Itinerary" icon={GrSchedule} selected={sellected} setSellected={setSellected} to="/itinerary" />  
              <Navitem title="Budget" icon={LuWallet} selected={sellected} setSellected={setSellected} to="/budget" />  
-             <Navitem title="Advise" icon={FaHandPointRight} selected={sellected} setSellected={setSellected} to="/advise" />  
+             <Navitem title="Discover" icon={FaHandPointRight} selected={sellected} setSellected={setSellected} to="/discover" />  
          </Flex>
   
        </Flex>
-    
      </>
   )
 }

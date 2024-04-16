@@ -79,7 +79,7 @@ export const deletepoint = async (req, res) => {
 export const updatepoint = async (req, res) => {
     const newpoint = req.body
     const  {_id}  = newpoint
-
+    console.log("update req came")
     try {
         const newpoints = await Point.findByIdAndUpdate(_id, newpoint)
         //return all new points

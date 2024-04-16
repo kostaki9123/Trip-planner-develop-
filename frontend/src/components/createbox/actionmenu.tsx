@@ -1,6 +1,7 @@
 import { Menu,MenuButton,useDisclosure, MenuList,MenuGroup,MenuItem } from "@chakra-ui/react";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { useDispatch } from 'react-redux';
+import { Box } from "@chakra-ui/react";
 
 import { AppDispatch } from '../../Redux/store';
 import { Tpoint, deletepoint } from "../../Redux/Slices/PointsSlice";
@@ -30,14 +31,14 @@ const Actionmenu = (Props : Props) => {
 
    
   return (
-  <>
+  <> 
     <Menu closeOnSelect={false}>
       <MenuButton h="25px" w="28px" borderRadius="20%" p="6px" _hover={{backgroundColor : "rgb(23, 46,99)" }}>
         <HiDotsHorizontal/>
       </MenuButton>
       
-      <MenuList color="black" zIndex={1} position="relative">
-       <MenuGroup textAlign="center" title='List actions'>
+      <MenuList color="black" zIndex={9999} position="absolute" overflowX="auto">
+       <MenuGroup textAlign="center" zIndex={999} title='List actions'>
          <MenuItem onClick={modalview.onOpen}>View point</MenuItem>
          <MenuItem onClick={modalform.onOpen}>Create point</MenuItem>
          <MenuItem onClick={modaledit.onOpen}>Edit</MenuItem>
@@ -51,7 +52,7 @@ const Actionmenu = (Props : Props) => {
      <Createpointbetween isOpen={modalform.isOpen} onClose={modalform.onClose} index={Props.index + 1}/>
      <View isOpen={modalview.isOpen} onClose={modalview.onClose} data={Props.data}/>
      <MovePoint isOpen={modalmovepoint.isOpen}  onClose={modalmovepoint.onClose} index={Props.index} datalenght={Props.datalenght}/>
-     <Edit isOpen={modaledit.isOpen} onClose={modaledit.onClose} index={Props.index - 1} data={Props.data}/>
+     <Edit isOpen={modaledit.isOpen} onClose={modaledit.onClose} index={Props.index } data={Props.data}/>
  </>  
   )
 }

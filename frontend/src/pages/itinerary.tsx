@@ -4,14 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BsThreeDots } from "react-icons/bs";
 
 
-import Dashboardlayout from '../components/Dashboard/dashboardlayout';
+import Dashboardlayout from '../components/DashboardLayout/dashboardlayout';
 import { Tpoint, fetchdata } from '../Redux/Slices/PointsSlice'
 import { AppDispatch, RootState } from '../Redux/store'
 import AccordionItenerary from '../components/itenerary/accodion';
 import App from '../components/itenerary/GoogleMap/mainmap';
 import Byplace from '../components/itenerary/byplace';
-import Byday from '../components/itenerary/byday';
-import OrderByMenu from '../components/itenerary/orderByMenu';
+import EmptyItenerary from '../components/itenerary/emptyItenerary';
 
 
 const Itinerary  = () => {
@@ -33,30 +32,23 @@ const Itinerary  = () => {
   return (
    <Dashboardlayout>
     <Box bgColor="rgb(40,44,53)" minH="100%" display="flex" alignItems="start"  justifyContent="space-between" flexDirection="column" >
-         <Flex  w="100%"  flexDir="column">
+         <Flex  w="100%"  flexDir="column" >
          { isPending ? 
           <Flex position="absolute" top="45%" left="47%" > 
             <Spinner size='xl' />
           </Flex> 
           :  (
           allpoints?.length === 0 ? 
-          ( <Box>Your itenerary is empty</Box> )
+          ( <EmptyItenerary/> )
           : (
           <>  
-               <OrderByMenu setIteneraryStatus={setIteneraryStatus}/>
-               <Flex w="100%" flexDir="row" h="100%" flexWrap="wrap" > 
+               <Flex w="100%" flexDir="row" h="100%" px="12px " gap="12px"  flexWrap="wrap" > 
                    {allpoints?.map(( point : Tpoint, key : number) => (  
                      <>
-                        {iteneraryStatus === "byPlace" ? (
-                        // Render if iteneraryStatus is "byPlace"
+                        {(
                         point.type === "point" && (
                            <Byplace data={point} key={key}/>     
                           )
-                        ) : (
-                          // Render if iteneraryStatus is "byDay"
-                          point.type === "point" && (
-                           <Byday/>    
-                            )
                         )}                       
                      </>
                         
@@ -68,8 +60,8 @@ const Itinerary  = () => {
            )
           }
           </Flex>
-          <Box  height="370px" w="100%"  mt="10px">
-             <App/>
+          <Box  height="370px" w="100%"  mt="10px" border="1px solid lime">
+            
           </Box>
     </Box>
   </Dashboardlayout> 

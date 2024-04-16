@@ -10,13 +10,13 @@ export type Tmapos = {
 
 export type Tpoint = {
   type : "movingbox" | "point"
-  startdate : string
+  startdate : string    
   enddate ?: string | null
   index : number
-  location? : google.maps.places.PlaceResult | null
+  location? :  google.maps.places.PlaceResult | null 
   time? : string
   moveIcon ?: "Airplane" | "Train" |  "Car" | "Bus" | "Cycle" | "Ship" | string
-  mapos ? : Tmapos | undefined
+  mapos ? :  Tmapos | undefined
   from? : google.maps.places.PlaceResult | null
   to? : google.maps.places.PlaceResult | null
   __v ?: number
@@ -72,12 +72,22 @@ const PointSlice = createSlice({
 
     // update point
     builder.addCase(updatepoint.fulfilled, (state, action: PayloadAction<Tpoint>) => {
-      const updatePoint = action.payload
+      const updatePoint = action.payload 
       const indexToUpdate = state.findIndex(point => point._id  === updatePoint._id )
-      if (indexToUpdate  !== -1){
-           state[indexToUpdate] = updatePoint 
+      if (indexToUpdate !== -1) {
+        // Create a new array by mapping over the current state
+        const newArray = state.map((point, index) => {
+          if (point.index === indexToUpdate) {
+            // Replace the object at the indexToUpdate with the updated object
+            return updatePoint;
+          }
+          // For other indexes, return the original object
+          return point;
+        });
+    
+        // Return the new state array
+        return newArray;
       }
-      return  state
     });
     builder.addCase(updatepoint.pending, (state, action) => {
       console.log("Updating point...");
@@ -195,8 +205,7 @@ export const createPointAsync = createAsyncThunk(
    export const fetchdata = createAsyncThunk(
        "points/getpoints",
        async ()  => {
-       const res  = await axiosPrivate.get<Tpoint[]>("http://localhost:5000/getpoints")
-       console.log("Real res:",res)      
+       const res  = await axiosPrivate.get<Tpoint[]>("http://localhost:5000/getpoints")  
 
        return res.data
       }

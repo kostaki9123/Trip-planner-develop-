@@ -10,7 +10,7 @@ import { Tpoint } from '../../../Redux/Slices/PointsSlice';
 import { createPointBetween } from '../../../Redux/Slices/PointsSlice';
 import { AppDispatch } from '../../../Redux/store';
 import LocationInput from './locationinput';
-import Example from '../radiusbuttons/example';
+import Example from './radiusbuttons/example';
 
 type Props = {
     isOpen : any
@@ -89,7 +89,7 @@ dispatch(createPointBetween(Movingboxdatatosend))  //create pointbetween
 
     <Modal isOpen={props.isOpen} onClose={props.onClose}>
     <ModalOverlay />
-    <ModalContent zIndex={1}>
+    <ModalContent zIndex={1} pos="absolute" top="11%" left="43%" >
     <form onSubmit={handleSubmit(handleData)}>
           <ModalHeader display="flex" alignItems="center" justifyContent="center" >
              <RadioGroup >

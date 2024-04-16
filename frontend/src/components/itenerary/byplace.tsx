@@ -28,7 +28,7 @@ const Byplace = (props : props) => {
 
 
   return (
-    <Flex key={props.key} mt="13px" ml="10px"  w="32.3%" flexDirection="column" gap="10px" bgColor="rgb(26,28,34)" borderRadius="10px" alignItems="start" justifyContent="start" >
+    <Flex key={props.key}  mt="13px" w={{base: '99%',lg: '99%', xl: '49%',xll : "49.19%" ,xxxl : "49.4%",xxxxl : "32.6%"  ,'2xl': '32.65%',}} flexDirection="column" gap="10px" bgColor="rgb(26,28,34)" borderRadius="10px" alignItems="start" justifyContent="start" >
             <Flex flexDirection="column" alignItems="start" justifyContent="center" p="6px" w="100%"  borderRadius="6px">
                     <Flex alignItems="center" justifyContent="space-between" w="100%"> 
                         <Box fontSize="15px">

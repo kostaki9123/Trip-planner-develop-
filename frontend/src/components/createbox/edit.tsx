@@ -9,7 +9,7 @@ import { APIProvider } from '@vis.gl/react-google-maps';
 import { updatepoint } from '../../Redux/Slices/PointsSlice';
 import { AppDispatch } from '../../Redux/store';
 import { Tpoint } from '../../Redux/Slices/PointsSlice';
-import Example from './radiusbuttons/example';
+import Example from './form/radiusbuttons/example';
 import LocationInput from './form/locationinput';
 
 
@@ -85,7 +85,7 @@ const Edit = (props : Props) => {
       
     <Modal isOpen={props.isOpen} onClose={props.onClose} closeOnOverlayClick={false}>
     <ModalOverlay />
-    <ModalContent>
+    <ModalContent pos="absolute" top="15%" left="43%">
     <form onSubmit={handleSubmit(handleData)}>
           <ModalHeader display="flex" alignItems="center" justifyContent="center"  >
              <RadioGroup >

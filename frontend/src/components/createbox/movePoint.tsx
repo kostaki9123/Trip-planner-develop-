@@ -52,7 +52,7 @@ const MovePoint = (props : Props) => {
   return (
     <Modal isOpen={props.isOpen} onClose={props.onClose}>
     <ModalOverlay />
-    <ModalContent w="350px" >
+    <ModalContent w="350px" pos="absolute" top="15%" left="43%">
      <form onSubmit={handleSubmit(handleData)}>   
       <ModalHeader textAlign="center">Move point</ModalHeader>
       <ModalCloseButton />

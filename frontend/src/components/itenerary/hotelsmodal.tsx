@@ -52,7 +52,7 @@ const AccomodationBox = () => {
                     <Box  w="25%" h="35px" display="flex" alignItems="center" justifyContent="center">
                        <FaDollarSign/>
                     </Box> 
-                    <Text w="75%"  h="100%" color="white" textAlign="start" p="7px">Add cost</Text>
+                    <Text w="75%"  h="100%" color="white" textAlign="start" display="inline" p="7px">Add cost</Text>
                  </Flex>
             </Flex>
          </Flex>

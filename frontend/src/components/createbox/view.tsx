@@ -11,11 +11,10 @@ type Props = {
 
 const View = (props : Props) => {
 
-  console.log("els" ,props.data)
   return (
   <Modal isOpen={props.isOpen} onClose={props.onClose}>
     <ModalOverlay />
-    <ModalContent>
+    <ModalContent pos="absolute" top="15%" left="43%" >
       <ModalHeader textAlign="center">Point info</ModalHeader>
       <ModalCloseButton />
       <ModalBody>

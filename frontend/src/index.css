@@ -5,8 +5,10 @@
 }
 
 body{
+  overflow-y: hidden;
   height: 100vh;
 }
+
 
 .main-section { 
   height: 100vh;

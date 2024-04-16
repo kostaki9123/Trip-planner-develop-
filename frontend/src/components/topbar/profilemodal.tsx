@@ -1,16 +1,15 @@
 import { Menu,MenuButton,MenuList,MenuGroup,MenuItem,MenuDivider,Button, Avatar } from "@chakra-ui/react";
 import { AppDispatch } from "../../Redux/store";
-import { useDispatch , useSelector} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { LogoutAsync } from "../../Redux/Slices/AuthSlice";
 import { useNavigate } from "react-router-dom";
-import Cookies from 'js-cookie';
 
 type props = {
   dropdownside ? : string
 }
 
 const Profilemodal = (props : props) => {
-
+ 
   const dispatch = useDispatch<AppDispatch>()
   const navigate = useNavigate()
 
@@ -21,7 +20,7 @@ const handleLogout = async () => {
 }
 
   return (
-   <Menu placement={props.dropdownside === "bl" ?  "bottom-end" : "auto"}>
+   <Menu placement="bottom-start" >
      <MenuButton>
          <Avatar   name='kostas' src='/cartoon.jpg' ml="15px" cursor="pointer"  size="md" />
       </MenuButton>

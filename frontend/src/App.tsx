@@ -9,14 +9,13 @@ import Home from "./pages/Home";
 import Createtrip from "./pages/createtrip";
 import Itinerary from "./pages/itinerary";
 import Budget from "./pages/budget";
-import Advise from "./pages/advise";
-
+import ManageTrips from "./pages/manageTrips";
+import Discover from "./pages/discover";
 
 import PrivateRoutes from "./PrivateRoutes";
 import { Suspense } from "react";
 import FallbackLoading from "./components/loaders/fallbackloading";
-import ManageTrips from "./pages/manageTrips";
-import Dashboardlayout from "./components/Dashboard/dashboardlayout";
+
 
 
 
@@ -28,12 +27,12 @@ function App() {
       <Suspense fallback={<FallbackLoading/>}>
        <Routes>
              <Route element={<PrivateRoutes/>}> 
-                 <Route path="/" element={<ManageTrips/>} />
+                 <Route path="/" element={<ManageTrips/>} />              
                  <Route path="/home" element={<Home/>} />
                  <Route path="/createtrip" element={<Createtrip/>} />
                  <Route path="/itinerary" element={<Itinerary/>} />
                  <Route path="/budget" element={<Budget/>} />
-                 <Route path="/advise" element={<Advise/>} />  
+                 <Route path="/discover" element={<Discover/>} />    
              </Route>
           <Route
              path="/signup"
