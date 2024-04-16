@@ -1,5 +1,5 @@
 import { Box, FormControl,Text,Accordion,Button,AccordionItem,AccordionButton,AccordionIcon,AccordionPanel,Flex, Image } from "@chakra-ui/react"
-import AccomodationBox from "./hotelsmodal";
+import AccomodationBox from "./AccomodationModal/hotelsmodal";
 import LocationInput from "./GoogleMap/locationinput";
 import { useState } from "react";
 import { APIProvider } from '@vis.gl/react-google-maps';
@@ -54,8 +54,8 @@ const AccordionItenerary = (props : props) => {
            </AccordionButton>
          </h2>
          <AccordionPanel pb={4}>
+         <AccomodationBox/>
          <FormControl>
-
             <APIProvider apiKey="AIzaSyA5s9ii3P2sx3xwxZ8JgrrXxk3g-flRWMg">
                  <LocationInput setLocation={setStaylocation} deafultValue={null}/>    
             </APIProvider>     
