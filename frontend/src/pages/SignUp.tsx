@@ -35,7 +35,7 @@ const SignUp = () => {
       e.preventDefault()
       setLoading(true)
 
-      const apiUrl = 'http://localhost:5000/api/user/signup'
+      const apiUrl = 'https://trip-planner-develop.vercel.app/api/user/signup'
     
       const data = {
         fullname , 

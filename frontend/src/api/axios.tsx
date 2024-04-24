@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //To our backend
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'https://trip-planner-develop.vercel.app/';
                   
 
 export default axios.create({
