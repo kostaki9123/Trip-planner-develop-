@@ -43,7 +43,7 @@ const LocationInput = (props: Props) => {
 
   return (
     <FormControl mb={0.5} zIndex={9999}>
-      <Input ref={inputRef} placeholder="Enter a location" defaultValue={props.deafultValue || undefined} onKeyDown={handleKeyPress} />
+      <Input  border="none" bgColor="rgb(40,44,53)" ref={inputRef} placeholder="Enter a location" defaultValue={props.deafultValue || undefined} onKeyDown={handleKeyPress} />
     </FormControl>
   );
 }

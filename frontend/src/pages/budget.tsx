@@ -1,23 +1,30 @@
 import React from 'react'
 import { Flex , Box} from '@chakra-ui/react'
 import Dashboardlayout from '../components/DashboardLayout/dashboardlayout'
-import DoughnutChart from '../components/budget/DoughnutChart'
+import Sxediagrama from '../components/budget/sxediagrama'
+import AllExpenes from '../components/budget/allExpenes'
+import Addexpense from '../components/budget/AddExpenseModal/addexpense'
+import Amounts from '../components/budget/amounts'
+import Setbudget from '../components/budget/setbudget'
+import Budgetnote from '../components/budget/budgetnote'
+import Changecurrency from '../components/budget/changecurrency'
+import Productprices from '../components/budget/productprices'
+
+//dicede ui
+
 
 const Budget = () => {
   return (
     <Dashboardlayout>
-      <Flex bgColor="rgb(40,44,53)" h="100%" w="100%" flexDirection="column" alignContent="start" justifyContent="start" >
-         <Flex border="1px solid red" h="50%" w="100%">
-            <Box w="50%" h="100%" border="1px solid red">
-                <DoughnutChart/>
-            </Box>
-            <Box w="50%" h="100%" border="1px solid red">sxediagramma</Box>
-         </Flex>
-         <Flex border="1px solid red" h="50%">
-            <Box w="50%" h="100%" border="1px solid red">all expenses one by one</Box>
-            <Box w="50%" h="100%" border="1px solid red">add new expenses / show possible expnses</Box>
-         </Flex>
-      </Flex>
+       <Box bgColor="rgb(40,44,53)" h="100%" p="30px" display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gridTemplateRows="1fr 1fr 1fr 1fr" gap="30px">
+         <Box  bgColor="rgb(26,28,34)" gridColumn="1/2" gridRow="1/3" borderRadius="10px"><Amounts/></Box>
+         <Flex  bgColor="rgb(26,28,34)"  gridColumn="1/3" gridRow="3/5" borderRadius="10px"> <AllExpenes/></Flex>
+         <Flex  bgColor="rgb(26,28,34)"  gridColumn="2/4" gridRow="1/3" borderRadius="10px"  alignItems="center" justifyContent="center"><Sxediagrama/></Flex>
+         <Flex  bgColor="rgb(26,28,34)"  gridColumn="4/5" gridRow="1/3" borderRadius="10px"  alignItems="center" justifyContent="center"><Setbudget/></Flex>
+         <Flex  bgColor="rgb(26,28,34)"  gridColumn="4/5" gridRow="3/4" borderRadius="10px"  alignItems="center" justifyContent="center"><Budgetnote/></Flex>
+         <Flex  bgColor="rgb(26,28,34)"  gridColumn="4/5" gridRow="4/5" borderRadius="10px"  alignItems="center" justifyContent="center"><Changecurrency/></Flex>
+         <Box  bgColor="rgb(26,28,34)" gridColumn="3/4" gridRow="3/5" borderRadius="10px"><Productprices/></Box>
+       </Box>
     </Dashboardlayout>
   )
 }

@@ -36,7 +36,7 @@ const AccordionItenerary = (props : props) => {
              </AccordionButton>
            <AccordionPanel p={1.5} >
              <AccomodationBox/> 
-             <FormControl>
+             <FormControl >
                  <APIProvider apiKey="AIzaSyA5s9ii3P2sx3xwxZ8JgrrXxk3g-flRWMg">
                      <LocationInput setLocation={setStaylocation} deafultValue={null}/>    
                  </APIProvider>    
@@ -44,7 +44,7 @@ const AccordionItenerary = (props : props) => {
            </AccordionPanel>
        </AccordionItem>
 
-       <AccordionItem _focus={{border: "none"}}>
+       <AccordionItem borderX="none" borderBottom="none" _focus={{border: "none"}}>
          <h2>
            <AccordionButton p={1.5}>
              <Box as="span" flex='1' textAlign='left'>
@@ -53,10 +53,10 @@ const AccordionItenerary = (props : props) => {
              <AccordionIcon />
            </AccordionButton>
          </h2>
-         <AccordionPanel pb={4}>
+         <AccordionPanel p={1.5}>
          <AccomodationBox/>
-         <FormControl>
-            <APIProvider apiKey="AIzaSyA5s9ii3P2sx3xwxZ8JgrrXxk3g-flRWMg">
+         <FormControl >
+            <APIProvider apiKey="AIzaSyA5s9ii3P2sx3xwxZ8JgrrXxk3g-flRWMg" >
                  <LocationInput setLocation={setStaylocation} deafultValue={null}/>    
             </APIProvider>     
          </FormControl>
