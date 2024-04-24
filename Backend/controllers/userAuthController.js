@@ -3,12 +3,12 @@ import User from '../models/userAuthModel.js'
 
 export const createAccessToken = (_id) => {
     const expiration = Math.floor(Date.now() / 1000) + (60 * 60 * 24)
-    return jwt.sign({_id}, process.env.A_SECRET, { expiresIn: expiration })
+    return jwt.sign({_id}, "ninjadojoshifuyoshimarioluigipeachbowser" , { expiresIn: expiration })    //efiame env virable process.env.A_SECRET
   }
 
 const createRefreshToken = (_id) => {
     const expiration = Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 15)
-    return jwt.sign({_id}, process.env.R_SECRET, { expiresIn: expiration })
+    return jwt.sign({_id}, "cnedvin95n9ek3kci3xzlaiengjelieerngjvkf44kv", { expiresIn: expiration })   //efiame env virable process.env.A_SECRET
   }
 
 export const loginUser =async (req,res) => {

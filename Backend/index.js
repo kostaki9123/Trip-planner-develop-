@@ -75,10 +75,10 @@ app.get('/',async (req, res) => {
 });
 
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect("mongodb://localhost:27017")
     .then(() => {
-      app.listen(port, () => {
-        console.log(`Server is listening at http://localhost:${port}`);
+      app.listen(5000, () => {
+        console.log(`Server is listening at http://localhost:5000`)   //env efiamento port
       });
     })
     .catch((error) => {
