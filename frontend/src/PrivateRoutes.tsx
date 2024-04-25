@@ -42,8 +42,8 @@ const PrivateRoutes = () => {
   if (auth === null) {
     return <Fullpageloading />;
   }
-
-  return auth ? (
+    
+  return auth ? ( 
     <>
         <Outlet />
     </>

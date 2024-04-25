@@ -12,10 +12,10 @@ import User from "./models/userAuthModel.js";
 
 const app = express()
 
+app.use(cors());
 
-
-// Handle CORS preflight requests (OPTIONS)
-app.options(cors());
+// Handle CORS preflight requests (OPTIONS) for specific routes
+app.options('*', cors());
 
 dotenv.config();
 
