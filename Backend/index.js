@@ -12,13 +12,10 @@ import User from "./models/userAuthModel.js";
 
 const app = express()
 
-app.use(cors({
-  origin: 'https://costoulifirstreact.vercel.app/',
-  credentials: true
-}));
+
 
 // Handle CORS preflight requests (OPTIONS)
-app.options('*', cors());
+app.options(cors());
 
 dotenv.config();
 
