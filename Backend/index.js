@@ -13,7 +13,7 @@ import User from "./models/userAuthModel.js";
 const app = express()
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://costoulifirstreact.vercel.app/',
   credentials: true
 }));
 
