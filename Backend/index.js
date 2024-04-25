@@ -12,7 +12,10 @@ import User from "./models/userAuthModel.js";
 
 const app = express()
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://yourfrontenddomain.com', // Replace with your frontend domain
+  credentials: true // Allow credentials (cookies)
+}));
 
 // Handle CORS preflight requests (OPTIONS) for specific routes
 app.options('*', cors());
