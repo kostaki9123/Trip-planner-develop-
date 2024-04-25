@@ -13,7 +13,7 @@ import User from "./models/userAuthModel.js";
 const app = express()
 
 app.use(cors({
-  origin: 'https://yourfrontenddomain.com', // Replace with your frontend domain
+  origin: 'https://costoulifirstreact.vercel.app', // Replace with your frontend domain
   credentials: true // Allow credentials (cookies)
 }));
 
