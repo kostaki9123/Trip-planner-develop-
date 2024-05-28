@@ -3,11 +3,16 @@ import React, { useEffect, useRef } from 'react';
 import { AppDispatch , RootState } from '../../../Redux/store';
 import { useSelector } from 'react-redux';
 import { Tmapos, Tpoint } from '../../../Redux/Slices/PointsSlice';
+import { RiHotelBedFill } from "react-icons/ri";
+
 
 interface Coordinates {
   lat: number;
   lng: number;
 }
+
+const image =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
 
 const GMap = () => {
   const allpoints = useSelector((state : RootState) => state.points)
@@ -28,7 +33,8 @@ const GMap = () => {
     const drawMarker = (obj:any) => {
       const marker = new window.google.maps.Marker({
         position: obj,
-        map: googleMap
+        map: googleMap,
+        icon : image
       });
       return marker;
     }

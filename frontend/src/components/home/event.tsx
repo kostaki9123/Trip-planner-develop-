@@ -2,8 +2,8 @@ import { Box, Heading, Flex } from '@chakra-ui/react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-let client_id = "HYNoYYqzfxUUlgdEIAk8r4AhKwlGYpXK"
-let client_secret = "BxiNGwnHGeTWD9ft"
+  let client_id = "HYNoYYqzfxUUlgdEIAk8r4AhKwlGYpXK"
+  let client_secret = "BxiNGwnHGeTWD9ft"
 
 const Event = () => {
     const [data ,setData] = useState<[]>([])

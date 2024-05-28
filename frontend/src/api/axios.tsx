@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //To our backend
 
-const BASE_URL = 'https://trip-planner-develop.vercel.app/';
+const BASE_URL = 'http://localhost:5000';
                   
 
 export default axios.create({
@@ -23,6 +23,6 @@ export const axiosNocreadentials = axios.create({
 //To get exchanges currency
 
 export const axiosCurrencyRates = axios.create({
-    baseURL: "https://v6.exchangerate-api.com/v6/87df55a74ead86ea7fcdf7bd/latest/USD" ,
+    baseURL: "https://v6.exchangerate-api.com/v6/YOUR-API-KEY/latest/USD" ,
     headers: { 'Content-Type': 'application/json' },
 });

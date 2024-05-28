@@ -3,7 +3,6 @@ import { Image ,Flex ,Heading,Tabs,TabList,Tab,TabIndicator,TabPanels,TabPanel} 
 import Tripmodal from "../components/managetrips/tripmodal"
 import { IoMdAdd } from "react-icons/io";
 import Profilemodal from "../components/topbar/profilemodal";
-import CaptionCarousel from "../components/managetrips/carousel";
 import Topbar from "../components/topbar/topbar";
 
 

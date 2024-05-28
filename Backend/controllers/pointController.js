@@ -2,10 +2,10 @@ import Point from '../models/pointModel.js'
 
 export const createpoint = async (req,res) => {
         const {type} = req.body
-    
+        console.log("Body",req.body.location)
     try{
         if(type === "movingbox"){
-
+        
         const newPoint = new Point({
             type : req.body.type ,
             startdate : req.body.startdate , 

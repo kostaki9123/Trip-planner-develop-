@@ -5,7 +5,9 @@ import GMap from './map';
 // API key of the google map
 const GOOGLE_MAP_API_KEY = 'AIzaSyA5s9ii3P2sx3xwxZ8JgrrXxk3g-flRWMg';
 
-
+type props = {
+  position ?: "absolute" | "relative"
+}
 
 // load google map script
 const loadGoogleMapScript = (callback : any) => {
@@ -30,7 +32,7 @@ const App = () => {
   }, []);
  
   return (
-    <Box  zIndex={999}  h="100%" > 
+    <Box  zIndex={9999} h="100%" > 
       {!loadMap ? <div>Loading...</div> : <GMap />}
    </Box>
   );

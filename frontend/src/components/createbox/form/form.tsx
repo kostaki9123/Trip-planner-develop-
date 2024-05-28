@@ -90,7 +90,7 @@ const Form = (props : Props) => {
          props.onClose()
       }
 
-
+  console.log("Location",location)
   return (
   <>
 

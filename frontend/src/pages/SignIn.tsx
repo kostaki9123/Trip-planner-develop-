@@ -56,7 +56,7 @@ const SignIn = (props : props) => {
     e.preventDefault()
     setLoading(true)
     
-    const apiUrl = 'https://trip-planner-develop.vercel.app/api/user/login'
+    const apiUrl = 'http://localhost:5000/api/user/login'
     
     const data = {
       email ,

@@ -23,3 +23,16 @@ body{
 .pac-container {
   z-index: 9999;
 }
+
+.pac-container:after {
+  /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+
+  background-image: none !important;
+  height: 0px;
+}
+
+.pac-container .pac-item {
+  height: 50px;
+  padding: 12px;
+}
+

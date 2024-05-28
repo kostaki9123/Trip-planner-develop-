@@ -46,7 +46,7 @@ const LocationInput = (props: Props) => {
   return (
     <FormControl  >
       <FormLabel>{props.inputName}</FormLabel>
-      <Input  ref={inputRef} id="omonoia" placeholder="Enter a location" backgroundImage="none"  defaultValue={props.deafultValue || undefined} onKeyDown={handleKeyPress} />
+      <Input ref={inputRef} placeholder="Enter a location" backgroundImage="none"  defaultValue={props.deafultValue || undefined} onKeyDown={handleKeyPress} />
     </FormControl>
   );
 }

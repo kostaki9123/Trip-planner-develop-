@@ -13,11 +13,11 @@ import User from "./models/userAuthModel.js";
 const app = express()
 
 app.use(cors({
-  origin: 'https://costoulifirstreact.vercel.app', // Replace with your frontend domain
-  credentials: true // Allow credentials (cookies)
+  origin: 'http://localhost:3000',
+  credentials: true
 }));
 
-// Handle CORS preflight requests (OPTIONS) for specific routes
+// Handle CORS preflight requests (OPTIONS)
 app.options('*', cors());
 
 dotenv.config();
@@ -75,10 +75,10 @@ app.get('/',async (req, res) => {
 });
 
 
-mongoose.connect("mongodb://localhost:27017")
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-      app.listen(5000, () => {
-        console.log(`Server is listening at http://localhost:5000`)   //env efiamento port
+      app.listen(port, () => {
+        console.log(`Server is listening at http://localhost:${port}`);
       });
     })
     .catch((error) => {

@@ -25,7 +25,7 @@ const Itinerary  = () => {
 
   return (
    <Dashboardlayout>
-    <Box bgColor="rgb(40,44,53)" minH="100%" display="flex" alignItems="start"  justifyContent="space-between" flexDirection="column" >
+    <Box bgColor="rgb(40,44,53)" overflowY="hidden" top="0" bottom="0" right="0" minH="100%" display="flex"  alignItems="start"  position="relative" justifyContent="flex-start" flexDirection="column">
         <ItineraryMainSection isPending={isPending}/>
     </Box>
   </Dashboardlayout> 

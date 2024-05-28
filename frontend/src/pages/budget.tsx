@@ -4,11 +4,12 @@ import Dashboardlayout from '../components/DashboardLayout/dashboardlayout'
 import Sxediagrama from '../components/budget/sxediagrama'
 import AllExpenes from '../components/budget/allExpenes'
 import Addexpense from '../components/budget/AddExpenseModal/addexpense'
-import Amounts from '../components/budget/amounts'
-import Setbudget from '../components/budget/setbudget'
-import Budgetnote from '../components/budget/budgetnote'
-import Changecurrency from '../components/budget/changecurrency'
+import Amounts from '../components/budget/amounts/amounts'
+import Setbudget from '../components/budget/setbuget/setbudget'
+import Budgetnote from '../components/budget/budgetnote/budgetnote'
+import Changecurrency from '../components/budget/budgetcurrency/changecurrency'
 import Productprices from '../components/budget/productprices'
+import Currency from '../components/budget/Currency/currency'
 
 //dicede ui
 
@@ -22,7 +23,7 @@ const Budget = () => {
          <Flex  bgColor="rgb(26,28,34)"  gridColumn="2/4" gridRow="1/3" borderRadius="10px"  alignItems="center" justifyContent="center"><Sxediagrama/></Flex>
          <Flex  bgColor="rgb(26,28,34)"  gridColumn="4/5" gridRow="1/3" borderRadius="10px"  alignItems="center" justifyContent="center"><Setbudget/></Flex>
          <Flex  bgColor="rgb(26,28,34)"  gridColumn="4/5" gridRow="3/4" borderRadius="10px"  alignItems="center" justifyContent="center"><Budgetnote/></Flex>
-         <Flex  bgColor="rgb(26,28,34)"  gridColumn="4/5" gridRow="4/5" borderRadius="10px"  alignItems="center" justifyContent="center"><Changecurrency/></Flex>
+         <Flex  bgColor="rgb(26,28,34)"  gridColumn="4/5" gridRow="4/5" borderRadius="10px"  alignItems="center" justifyContent="center"><Currency/></Flex>
          <Box  bgColor="rgb(26,28,34)" gridColumn="3/4" gridRow="3/5" borderRadius="10px"><Productprices/></Box>
        </Box>
     </Dashboardlayout>

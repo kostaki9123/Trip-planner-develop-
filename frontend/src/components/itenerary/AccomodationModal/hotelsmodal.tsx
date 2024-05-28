@@ -9,9 +9,6 @@ const AccomodationBox = () => {
   return (
     <Box  minHeight="150px" mb="10px"  p="10px" borderRadius="8px" fontWeight="400" bgColor="rgb(40,44,53)" position="relative">
 
-          {/*TopSection  **/}
-          <TopSection title="Downtown hostel"/>
-
           {/*MiddleSection  **/}
           <CenterSection/>
 

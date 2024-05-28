@@ -13,14 +13,18 @@ const LocationInput = (props: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const places = useMapsLibrary('places');
 
+  const inputt = document.getElementById("pac-input") as HTMLInputElement;
+
   useEffect(() => {
     if (!places || !inputRef.current) return;
 
     const options = {
-      fields: ['geometry', 'name', 'formatted_address']
+      fields: ['geometry', 'name', 'formatted_address' ,] ,
+      language:  'en' 
     };
 
-    setPlaceAutocomplete(new places.Autocomplete(inputRef.current, options));
+    setPlaceAutocomplete(new places.Autocomplete(inputt, options ));
+   
   }, [places]);
 
   useEffect(() => {
@@ -42,9 +46,9 @@ const LocationInput = (props: Props) => {
   
 
   return (
-    <FormControl mb={0.5} zIndex={9999}>
-      <Input  border="none" bgColor="rgb(40,44,53)" ref={inputRef} placeholder="Enter a location" defaultValue={props.deafultValue || undefined} onKeyDown={handleKeyPress} />
-    </FormControl>
+      <FormControl   mb={0.5} zIndex={9999}>
+        <Input id="pac-input"  border="none" bgColor="rgb(40,44,53)" ref={inputRef} placeholder="Enter a location" defaultValue={props.deafultValue || undefined} onKeyDown={handleKeyPress} />
+      </FormControl>
   );
 }
 
